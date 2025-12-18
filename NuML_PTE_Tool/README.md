@@ -12,7 +12,7 @@ NuML_Tool
 pip install -r ..\requirements.txt  
 python setup_progendef.py
 ~~~  
-* Arm GNU toolcahin
+* Arm GNU toolchain
     1. Download from https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads
     2. Install and add installation direcoty to your windows user Path environment variable
 ## Usage
