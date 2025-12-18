@@ -1,6 +1,7 @@
 common:
   includes:
     - ..\..\ThirdParty\executorch\_prebuilt\kernels
+    - ..\..\ThirdParty\executorch\_prebuilt\backends
     - ..\..\ThirdParty
     - ..\..\ThirdParty\executorch\runtime\core\portable_type\c10    
 tool_specific:
@@ -12,6 +13,7 @@ tool_specific:
       - ..\..\ThirdParty\executorch\Lib\libexecutorch_delegate_ethos_u.a
       - ..\..\ThirdParty\executorch\Lib\libportable_kernels.a
       - ..\..\ThirdParty\executorch\Lib\libquantized_kernels.a
+      - ..\..\ThirdParty\executorch\Lib\libcortex_m_kernels.a
   uvision5_armc6:
     sources:
       Lib:
@@ -20,4 +22,5 @@ tool_specific:
       - ..\..\ThirdParty\executorch\Lib\libexecutorch_delegate_ethos_u.lib
       - ..\..\ThirdParty\executorch\Lib\libportable_kernels.lib
       - ..\..\ThirdParty\executorch\Lib\libquantized_kernels.lib
+      - ..\..\ThirdParty\executorch\Lib\libcortex_m_kernels.lib
 

@@ -36,10 +36,10 @@ class MainCCodegen:
 
         for b in range(len(backendData_Obj)):
             backendDataDataObj = backendData_Obj[b]['data']
-            scratch_data_str = "scratch_data"
-            scratch_data_list = [ord(char) for char in scratch_data_str]
-            scratch_data_offset = find_sublist_index(backendDataDataObj, scratch_data_list)
-            scratch_size_offset = scratch_data_offset + 16   #16: Standard block name size
+            scratch_size_str = "scratch_size"
+            scratch_size_list = [ord(char) for char in scratch_size_str]
+            scratch_size_offset = find_sublist_index(backendDataDataObj, scratch_size_list)
+            scratch_size_offset = scratch_size_offset + 32   #32: VelaBinBlock->data
             scratch_size = backendDataDataObj[scratch_size_offset + 3] << 24
             scratch_size = scratch_size + (backendDataDataObj[scratch_size_offset + 2] << 16)
             scratch_size = scratch_size + (backendDataDataObj[scratch_size_offset + 1] << 8)

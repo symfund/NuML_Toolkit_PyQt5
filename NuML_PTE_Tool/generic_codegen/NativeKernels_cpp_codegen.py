@@ -22,6 +22,7 @@ class NativeKernelsCppCodegen:
         kernel_codes = []
         quantized_code_path = os.path.join('kernels', 'quantized','RegisterCodegenUnboxedKernelsEverything.cpp')
         portable_code_path = os.path.join('kernels', 'poartable','RegisterCodegenUnboxedKernelsEverything.cpp')
+        cortex_code_path = os.path.join('backends', 'cortex_m', 'RegisterCodegenUnboxedKernelsEverything.cpp')
 
         for i in range(len(executionPlan_Obj)):
             operatorsObj = executionPlan_Obj[i]['operators']
@@ -33,6 +34,8 @@ class NativeKernelsCppCodegen:
             prefix = kernel_list[i].split('::')[0]
             if prefix == 'quantized_decomposed':
                 kernel_code = extract_kernel_code(quantized_code_path, kernel_list[i])
+            elif prefix == 'cortex_m':
+                kernel_code = extract_kernel_code(cortex_code_path, kernel_list[i])
             else:
                 kernel_code = extract_kernel_code(portable_code_path, kernel_list[i])
 

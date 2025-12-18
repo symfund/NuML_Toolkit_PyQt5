@@ -8,11 +8,13 @@
 
 #include <executorch/runtime/core/evalue.h>
 #include <executorch/runtime/core/exec_aten/exec_aten.h>
+#include <executorch/runtime/core/exec_aten/util/tensor_util.h>
 #include <executorch/runtime/core/span.h>
 #include <executorch/runtime/kernel/operator_registry.h>
 #include <executorch/runtime/platform/profiler.h>
 #include "Portable/NativeFunctions.h" // Generated Function import headers
 #include "Quantized/NativeFunctions.h" // Generated Function import headers
+#include "cortex_m/NativeFunctions.h" // Generated Function import headers
 
 //Copy CPU native kernel operator from RegisterCodegenUnboxedKernelsEverything.cpp to here. These require by NN model
 
@@ -36,7 +38,6 @@ static KernelSpan kernel_span(
 
 Error register_all_kernels() {
     Error success_with_kernel_reg = register_kernels(kernel_span);
-//    Error success_with_kernel_reg = register_kernels(kernels_to_register);
 
     if(success_with_kernel_reg != Error::Ok) {
         ET_LOG(Error, "Failed register all kernels");
