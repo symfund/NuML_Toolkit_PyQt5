@@ -1,0 +1,13 @@
+common:
+  includes:
+    - NN_ImgClassInference\Device\include
+  sources:
+    Device:
+    - NN_ImgClassInference\Device\ImageSensor\ImageSensor.c
+    - NN_ImgClassInference\Device\ImageSensor\Sensor\Sensor_HM1055.c
+    - NN_ImgClassInference\Device\ImageSensor\Sensor\Sensor_GC0308.c
+    - NN_ImgClassInference\Device\ImageSensor\Sensor\SWI2C.c
+    - NN_ImgClassInference\Device\UVC\descriptors.c
+    - NN_ImgClassInference\Device\UVC\UVC.c
+    - NN_ImgClassInference\Device\SDCard\sdglue.c
+    - ..\..\Library\Storage\diskio_SDH.c

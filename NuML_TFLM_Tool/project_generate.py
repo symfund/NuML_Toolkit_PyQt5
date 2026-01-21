@@ -14,6 +14,7 @@ from tqdm import tqdm
 from generic_codegen.generic_codegen import GenericCodegen
 from imgclass_codegen.imgclass_codegen import ImgClassCodegen
 from objdet_codegen.objdet_codegen import ObjDetCodegen
+from objdet_yolox_codegen.objdet_yolox_codegen import ObjDetYoloXCodegen
 
 PROJECT_GEN_DIR_PREFIX = 'ProjGen_'
 
@@ -22,24 +23,30 @@ board_list = [
     #['NuMaker-M467HJ', 'M467', 'm460BSP', 'git@github.com:OpenNuvoton/m460bsp.git'],
     #['NuMaker-M467HJ', 'M467', 'm460bsp', 'https://github.com/OpenNuvoton/m460bsp.git'],
     ['NuMaker-M55M1', 'M55M1', 'M55M1BSP', 'https://github.com/OpenNuvoton/M55M1BSP.git'],   
+    ['NuGestureAI-M55M1', 'M55M1', 'M55M1BSP', 'https://github.com/OpenNuvoton/M55M1BSP.git'],   
 ]
 
 project_type_list = ['uvision5_armc6', 'make_gcc_arm']
 
 application = {
     "generic"   : {
-                    "board": ['NuMaker-M55M1'],
+                    "board": ['NuMaker-M55M1', 'NuGestureAI-M55M1'],
                     "example_tmpl_dir": "generic_template",
                     "example_tmpl_proj": "NN_ModelInference"
                   },
     "imgclass"  : {
-                    "board": ['NuMaker-M55M1'],
+                    "board": ['NuMaker-M55M1', 'NuGestureAI-M55M1'],
                     "example_tmpl_dir": "imgclass_template",
                     "example_tmpl_proj": "NN_ImgClassInference"
                   },
-    "objdet"  : {
+    "objdet"    : {
                     "board": ['NuMaker-M55M1'],
                     "example_tmpl_dir": "objdet_template",
+                    "example_tmpl_proj": "NN_ObjDetInference"
+                  },
+    "objdet_yolox"    : {
+                    "board": ['NuMaker-M55M1', 'NuGestureAI-M55M1'],
+                    "example_tmpl_dir": "objdet_yolox_template",
                     "example_tmpl_proj": "NN_ObjDetInference"
                   },
 }
@@ -67,7 +74,7 @@ def add_generate_parser(subparsers, _):
     parser.add_argument("--templates_path", help="specify template path")
     parser.add_argument("--model_arena_size", help="specify the size of arena cache memory in bytes", default='0')
     parser.add_argument("--vela_extra_option", help="specify vela extra options")
-    parser.add_argument("--application", help="specify application scenario generic/imgclass/objdet", default='generic')
+    parser.add_argument("--application", help="specify application scenario generic/imgclass/objdet/objdet_yolox", default='generic')
 
 # download board BSP
 def download_bsp(board_info, templates_path):
@@ -304,8 +311,12 @@ def project_generate(args):
 
     for board_info in board_list:
         if board_info[0] == args.board:
-            board_found = True
-            download_bsp(board_info, templates_path)
+            for supported_board in application_param["board"]:
+                if supported_board == args.board:
+                    board_found = True
+                    download_bsp(board_info, templates_path)
+                    break
+        if board_found == True:
             break
 
     if board_found == False:
@@ -361,6 +372,8 @@ def project_generate(args):
         codegen = ImgClassCodegen.from_args(vela_model_file_path, project_example_path, vela_summary_file_path, app='imagclass')
     elif application_usage == 'objdet':
         codegen = ObjDetCodegen.from_args(vela_model_file_path, project_example_path, vela_summary_file_path, app='objdet')
+    elif application_usage == 'objdet_yolox':
+        codegen = ObjDetYoloXCodegen.from_args(vela_model_file_path, project_example_path, vela_summary_file_path, app='objdet_yolox')
 
     codegen.code_gen()
 

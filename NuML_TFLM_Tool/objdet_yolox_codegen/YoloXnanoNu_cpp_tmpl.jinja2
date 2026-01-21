@@ -1,0 +1,25 @@
+/**************************************************************************//**
+ * @file     YoloXnanoNu.cpp
+ * @version  V1.00
+ * @brief    YOLOX-nano object detection model source file
+ *
+ * @copyright SPDX-License-Identifier: Apache-2.0
+ * @copyright Copyright (C) 2024 Nuvoton Technology Corp. All rights reserved.
+ ******************************************************************************/
+#include "YoloXnanoNu.hpp"
+
+#include "log_macros.h"
+
+const tflite::MicroOpResolver &arm::app::YoloXnanoNu::GetOpResolver()
+{
+    return this->m_opResolver;
+}
+
+bool arm::app::YoloXnanoNu::EnlistOperations()
+{
+    {% for operator in operators %}
+    this->m_opResolver.{{operator}}();
+    {% endfor %}
+
+    return true;
+}

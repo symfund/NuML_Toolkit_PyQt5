@@ -1,0 +1,13 @@
+common:
+  includes:
+    - NN_ObjDetInference\Device\include
+  sources:
+    Device:
+    - NN_ObjDetInference\Device\ImageSensor\ImageSensor.c
+    - NN_ObjDetInference\Device\ImageSensor\Sensor\Sensor_HM1055.c
+    - NN_ObjDetInference\Device\ImageSensor\Sensor\Sensor_GC0308.c
+    - NN_ObjDetInference\Device\ImageSensor\Sensor\SWI2C.c
+    - NN_ObjDetInference\Device\UVC\descriptors.c
+    - NN_ObjDetInference\Device\UVC\UVC.c
+    - NN_ObjDetInference\Device\SDCard\sdglue.c
+    - ..\..\Library\Storage\diskio_SDH.c

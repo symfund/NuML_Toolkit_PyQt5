@@ -27,7 +27,10 @@
 #include "log_macros.h"      /* Logging macros (optional) */
 
 //#define __PROFILE__
+
+#if !defined(__WITHOUT_HYPERRAM__)
 {{define_SD_model_load}}
+#endif
 
 #undef ACTIVATION_BUF_SZ
 {{define_activation_buf_size}}
@@ -54,10 +57,20 @@ extern size_t GetModelLen();
 
 static int32_t PrepareModelToHyperRAM(void)
 {
+#if !defined(__USE_SD1__)
 #define MODEL_FILE "0:\\nn_model.tflite"
+#else
+#define MODEL_FILE "1:\\nn_model.tflite"
+#endif
+
 #define EACH_READ_SIZE 512
 	
+#if !defined(__USE_SD1__)
     TCHAR sd_path[] = { '0', ':', 0 };    /* SD drive started from 0 */	
+#else
+    TCHAR sd_path[] = { '1', ':', 0 };    /* SD drive started from 0 */	
+#endif
+
     f_chdrive(sd_path);          /* set default path */
 
 	int32_t i32FileSize;

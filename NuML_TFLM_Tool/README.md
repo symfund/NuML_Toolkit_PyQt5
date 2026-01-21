@@ -4,6 +4,7 @@ NuML_Tool
 ## Support list
 * Board 
     1. NuMaker-M55M1
+    2. NuGestureAI-M55M1
 * Project type (IDE/toolchain)
     1. uvision5/armc6
     2. make/gcc
@@ -24,6 +25,7 @@ python setup_progendef.py
         * model_file: A quantized tflite model. You can refer to the [NuEdgeWise](https://github.com/OpenNuvoton/NuEdgeWise) tutorial to train your model. The "models\vww4_128_128_INT8.tflite" file is only for testing.
         * board: Supported board name  
             * NuMaker_M55M1
+            * NuGestureAI-M55M1
         * output_path: Ouput directory path of generated project
         * project_type [option]: Specify generated project type  
             * make_gcc_arm - default
@@ -32,6 +34,7 @@ python setup_progendef.py
             * generic - default
             * imgclass (MobileNetV2)
             * objdet (YOLOv8n 256x256/224x224/192x192) 
+            * objdet_yolox (YOLOX-nano) 
         * model_arena_size [option]: Specify the size of arena cache memory in bytes
 * Build
     ~~~
