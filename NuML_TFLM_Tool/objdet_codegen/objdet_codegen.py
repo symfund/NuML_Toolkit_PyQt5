@@ -35,7 +35,7 @@ class ObjDetCodegen:
         try:
             NNModel_hpp_file = open(NNModel_hpp_file_path, "w")
         except OSError:
-            print("Could not open MobileNetModel.hpp file")
+            print("Could not open YOLOv8nODModel.hpp file")
             return 'unable_generate'
 
         with NNModel_hpp_file:
@@ -51,7 +51,7 @@ class ObjDetCodegen:
         try:
             NNModel_cpp_file = open(NNModel_cpp_file_path, "w")
         except OSError:
-            print("Could not open MobileNetModel.cpp file")
+            print("Could not open YOLOv8nODModel.cpp file")
             return 'unable_generate'
 
         with NNModel_cpp_file:
