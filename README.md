@@ -1,29 +1,67 @@
-NuML_Toolkit
+PyQt5 Version NuML Toolkit
 ===
-### Windows tools for Nuvoton machine learning platform.
-## Tools 
-* [NuML_TFLM_Tool](NuML_TFLM_Tool/README.md) : Tool for machine learning project generate, build and flash base on TFLM framework
-* [NuML_TVM_Tool](NuML_TVM_Tool/README.md): Tool for machine learning project generate, build and flash base on TVM framwwork
-* [NuML_PTE_Tool](NuML_PTE_Tool/README.md): Tool for machine learning project generate, build and flash base on ExecuTorch framwwork
-* tvmc: TVM model compiler  
-    Reference: https://tvm.apache.org/docs/tutorial/tvmc_command_line_driver.html
-* vela: Arm model compiler for NPU accelerator  
-    Reference: https://gitlab.arm.com/artificial-intelligence/ethos-u/ethos-u-vela
-* tools: make, flatc and NuLink command tool
-* tflite2cpp: tflite model file convert to CPP hearder file
-## Install  
-1. Python 3.8 environment  
-    For conda:  
-    ~~~
-    conda env create --file conda\environment.yml
-    ~~~  
-    For others:  
-    ~~~
-    pip install -r requirements.txt
-    ~~~  
-2. tvmc.exe download  
-    ~~~
-    cd tvmc
-    python tvmc_exe_download.py
-    ~~~
+### TensorFlow Lite Model Deployment Tool for NuMaker M55M1 Running Within Miniforge3 Conda Environment (numl_toolkit)
+![Screenshot of PyQt5 version NuML Toolkit.](/assets/images/numl_toolkit_pyqt5.png)
+
+## Create Conda environment 'numl_toolkit'
+1. Go to https://conda-forge.org/miniforge/ to fetch and install the latest Miniforge for Windows.
+2. Clone this repository into D:\Projects\NuML_Toolkit_PyQt5
+   ```
+   git clone https://github.com/symfund/NuML_Toolkit_PyQt5.git D:\Projects\NuML_Toolkit_PyQt5
+   ```
+3. Open Miniforge Prompt
+   ```
+   (base) C:\Users\Arthur>
+   ```
+4. Change path to D:\Projects\NuML_Toolkit_PyQt5
+   ```
+   (base) C:\Users\Arthur>cd D:\Projects\NuML_Toolkit_PyQt5
+   (base) C:\Users\Arthurs>d:
+   (base) D:\Projects\NuML_Toolkit_PyQt5
+   ```
+5. Create the conda environment 'numl_toolkit' from the YAML file
+   ```
+   conda env create -f conda/environment.yml
+   ```
+6. Activate the conda environment 'numl_toolkit'
+   ```
+   conda activate numl_toolkit
+   ```
+7. Install git, pyqt5 under conda
+    ```
+   conda install git pyqt=5
+    ```
+8. Install Python packages through PIP
+   ```
+   pip install -r requirements.txt
+   ```
+9. Change directory to 'NuML_TFLM_Tool'
+   ```
+   cd NuML_TFLM_Tool
+   ```
+10. Run the Python script file 'setup_progendef.py'
+    ```
+    python setup_progendef.py
+    ```
+
+## Run PyQt5 version NuML Toolkit
+1. Open Miniforge Prompt
+   ```
+   (base) C:\Users\Arthur>
+   ```
+2. Activate the 'numl_toolkit' conda environment
+   ```
+   conda activate numl_toolkit
+   ```
+3. Change directory to 'D:\Projects\NuML_Toolkit_PyQt5'
+   ```
+   (base) C:\Users\Arthur>cd D:\Projects\NuML_Toolkit_PyQt5
+   (base) C:\Users\Arthurs>d:
+   (base) D:\Projects\NuML_Toolkit_PyQt5
+   ```
+4. Run PyQt5 version NuML Toolkit
+   ```
+   pythonw numl_toolkit_pyqt5
+   ```
+
 
