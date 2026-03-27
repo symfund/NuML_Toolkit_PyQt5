@@ -27,22 +27,18 @@ PyQt5 Version NuML Toolkit
    ```
    conda activate numl_toolkit
    ```
-7. Install git, pyqt5 under conda
-    ```
-   conda install git pyqt=5
-    ```
-8. Install Python packages through PIP
+7. Install Python packages through PIP
    ```
    pip install -r requirements.txt
    ```
-9. Change directory to 'NuML_TFLM_Tool'
+8. Change directory to 'NuML_TFLM_Tool'
    ```
    cd NuML_TFLM_Tool
    ```
-10. Run the Python script file 'setup_progendef.py'
-    ```
-    python setup_progendef.py
-    ```
+9. Run the Python script file 'setup_progendef.py'
+   ```
+   python setup_progendef.py
+   ```
 
 ## Run PyQt5 version NuML Toolkit
 1. Open Miniforge Prompt

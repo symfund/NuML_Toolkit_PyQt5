@@ -7,6 +7,8 @@ dependencies:
   - openssl=1.1.1t=h2bbff1b_0
   - pip=23.0.1
   - python=3.10
+  - pyqt=5
+  - git
   - setuptools=66.0.0
   - sqlite=3.41.2=h2bbff1b_0
   - vc=14.2=h21ff451_1
