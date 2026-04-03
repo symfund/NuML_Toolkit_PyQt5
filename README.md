@@ -56,18 +56,25 @@ PyQt5 Version NuML Toolkit
    (base) D:\Projects\NuML_Toolkit_PyQt5
    ```
 4. Run PyQt5 version NuML Toolkit
+   - without output console
    ```
-   pythonw numl_toolkit_pyqt5
+   pythonw numl_toolkit_pyqt5.py
+   ```
+   - with output console
+   ```
+   python numl_toolkit_pyqt5.py
    ```
 
 ## Run PyQt5 version NuML Toolkit without opening Miniforge Prompt
 There are two primary ways to launch a PyQt5 Numl_Toolkit application: Verbose (Console) Launch and Silent (Windowed) Launch.
 1. Verbose (Console) Launch: The application opens with an attached console or terminal window. This terminal displays real-time logs, print() statements, and error tracebacks alongside the GUI.
+   
    Double click the following batch file to verbose launch
    ```
    verbose_launch_numl_toolkit_pyqt5.bat
    ```
 3. Silent (Windowed) Launch: The application opens only the GUI window, suppressing the console entirely.
+   
    Double click the following VBScript file to silent launch
    ```
    silent_launch_numl_toolkit_pyqt5.vbs
