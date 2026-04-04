@@ -66,6 +66,15 @@ PyQt5 Version NuML Toolkit
    ```
 
 ## Run PyQt5 version NuML Toolkit without opening Miniforge Prompt
+To run PyQt5 version NuML Toolkit without opening the Miniforge Prompt, the git for Windows (https://git-scm.com/install/windows) must be installed first.  
+
+
+Adjust your PATH enviroment as follows  
+
+
+![Screenshot of git path setting.](/assets/images/git.png)
+
+
 There are two primary ways to launch a PyQt5 Numl_Toolkit application: Verbose (Console) Launch and Silent (Windowed) Launch.
 1. Verbose (Console) Launch: The application opens with an attached console or terminal window. This terminal displays real-time logs, print() statements, and error tracebacks alongside the GUI.
    
