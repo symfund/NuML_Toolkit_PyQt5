@@ -262,14 +262,16 @@ def prepare_proj_resource(board_info, project_path, templates_path, vela_model_f
 def proj_gen(progen_path, project_type, project_dir_name):
     cur_work_dir = os.getcwd()
     os.chdir(progen_path)
-    progen_cmd = ['progen', 'generate', '-f', 'project.yaml', '-p', project_dir_name]
+    conda_env_path = sys.prefix
+    progen_cmd_path = os.path.join(conda_env_path, 'Scripts', 'progen')
+    progen_cmd = [progen_cmd_path, 'generate', '-f', 'project.yaml', '-p', project_dir_name]
     progen_cmd.append('-t')
     progen_cmd.append(project_type)
-    ret =subprocess.run(progen_cmd)
-    if ret.returncode == 0:
-        print('Success generation')
-    else:
-        print('Unable generation')
+
+    try:
+        ret =subprocess.run(progen_cmd, capture_output=True, text=True, check=True)
+    except subprocess.CalledProcessError as e:
+        print("ERROR during progen execution:", e.stderr)
 
     #copy project file to project folder
     toolchain_project = project_type + '_' + project_dir_name
