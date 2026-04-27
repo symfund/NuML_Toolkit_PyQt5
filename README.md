@@ -51,9 +51,9 @@ PyQt5 Version NuML Toolkit
    ```
 3. Change directory to 'D:\Projects\NuML_Toolkit_PyQt5'
    ```
-   (base) C:\Users\Arthur>cd D:\Projects\NuML_Toolkit_PyQt5
-   (base) C:\Users\Arthurs>d:
-   (base) D:\Projects\NuML_Toolkit_PyQt5
+   (numl_toolkit) C:\Users\Arthur>cd D:\Projects\NuML_Toolkit_PyQt5
+   (numl_toolkit) C:\Users\Arthurs>d:
+   (numl_toolkit) D:\Projects\NuML_Toolkit_PyQt5
    ```
 4. Run PyQt5 version NuML Toolkit
    - without output console
